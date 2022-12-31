@@ -29,13 +29,14 @@ git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xia
 echo "KERNEL_CUSTOM_LLVM := true" >> device/xiaomi/lavender/B*.mk
 
 # patch
+cd /tmp/rom/hardware/qcom/display && curl https://github.com/wHo-EM-i/android_hardware_qcom_display/commit/bbbf547753f8b7f88e86efe13cefbdce7c72c5fc.patch | git am
 cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/61ea0bc221c8ae7992b44c58302e23ab3e748742.patch | git am
 cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 cd /tmp/rom/device/qcom/common && sed -i 's|include device/qcom/sepolicy-legacy/SEPolicy.mk|-include device/qcom/sepolicy-legacy/SEPolicy.mk|' B*Qcom.mk
 #cd /tmp/rom/kernel/xiaomi/lavender && git fetch https://github.com/projects-nexus/android_xtreme_kernel_lavender -t topaz
 #git cherry-pick b1f2b0c7b5ecfb733c042a7b21d852807e40956e^..e6e8510bea413213412e077b1016df9d0980de6e
 #git cherry-pick 29f9a3fb5442aadbb5417c18966722c594d6d910
-cp -f /tmp/rom/device/xiaomi/lavender/configs/perf/*.xml /tmp/rom/device/qcom/common/vendor/perf/configs/sdm660/perf
+cp -vf /tmp/rom/device/xiaomi/lavender/configs/perf/*.xml /tmp/rom/device/qcom/common/vendor/perf/configs/sdm660/perf
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
