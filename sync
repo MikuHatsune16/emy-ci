@@ -16,8 +16,8 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/crdroidandroid/android.git -b 13.0 -g default,-mips,-darwin,-notdefault
-git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b crdroid .repo/local_manifests
+repo init --depth=1 --no-repo-verify -u https://github.com/StagOS/manifest.git -b t13 -g default,-mips,-darwin,-notdefault
+git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b stag .repo/local_manifests
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
@@ -28,10 +28,10 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 #git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r433403b.git -b 12.0 prebuilts/clang/host/linux-x86/clang-r433403b
 
 # patch
-#cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
+cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 #cd /tmp/rom/device/qcom/common && curl https://github.com/wHo-EM-i/android_device_qcom_common/commit/b3a612e836ddf3e9ac766612ee4bd9194b681c95.patch | git am
-cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/5d7113e5323cfd9ad528319008b2895f5ac29113.patch | git am
-cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/2fa9b6e73c2f0c2b21b529a14e886ac79e5a081f.patch | git am
+#cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/5d7113e5323cfd9ad528319008b2895f5ac29113.patch | git am
+#cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/2fa9b6e73c2f0c2b21b529a14e886ac79e5a081f.patch | git am
 #cd /tmp/rom/hardware/libhardware && curl https://github.com/AOSPA/android_hardware_libhardware/commit/bec92996fbc143620da9a4a3c22a744958535ad5.patch | git am
 
 . /tmp/ci/function
