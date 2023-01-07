@@ -35,6 +35,7 @@ cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_lib
 #cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/5d7113e5323cfd9ad528319008b2895f5ac29113.patch | git am
 #cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/2fa9b6e73c2f0c2b21b529a14e886ac79e5a081f.patch | git am
 #cd /tmp/rom/hardware/libhardware && curl https://github.com/AOSPA/android_hardware_libhardware/commit/bec92996fbc143620da9a4a3c22a744958535ad5.patch | git am
+rm -rf /tmp/rom/hardware/google/graphics
 
 . /tmp/ci/function
 tg "$rom_name source sync completed!
