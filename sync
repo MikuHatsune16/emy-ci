@@ -26,6 +26,12 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 
 git clone --depth=1 https://github.com/AOSPA/android_hardware_google_pixel hardware/google/pixel -b topaz
 
+#hals
+rm -rf hardware/qcom-caf/msm8998/audio hardware/qcom-caf/msm8998/media hardware/qcom-caf/msm8998/display
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio -b 8998-4.4
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/msm8998/display -b 8998-4.4
+git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/msm8998/media -b 8998-4.4
+
 # tree
 #git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender -b T-CLO device/xiaomi/lavender
 #sed -i 's/CONFIG_LLVM_POLLY=y/# CONFIG_LLVM_POLLY is not set/' kernel/xiaomi/sdm660/arch/arm64/configs/lavender_defconfig
