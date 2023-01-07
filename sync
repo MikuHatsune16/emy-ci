@@ -17,7 +17,9 @@ fi
 
 # Sync source
 repo init --depth=1 --no-repo-verify -u https://github.com/StagOS/manifest.git -b t13 -g default,-mips,-darwin,-notdefault
-git clone https://github.com/wHo-EM-i/manifest.git --depth 1 -b stag .repo/local_manifests
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender-13 device/xiaomi/lavender -b StagOS
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender-13 vendor/xiaomi/lavender -b T
+git clone --depth=1 https://github.com/projects-nexus/xtreme_kernel_lavender-4.4 kernel/xiaomi/lavender -b a13-qti
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
