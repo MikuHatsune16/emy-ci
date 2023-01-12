@@ -19,7 +19,7 @@ fi
 repo init --depth=1 --no-repo-verify -u https://github.com/StagOS/manifest.git -b t13 -g default,-mips,-darwin,-notdefault
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender-13 device/xiaomi/lavender -b stag
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender-13 vendor/xiaomi/lavender -b T
-git clone --depth=1 https://github.com/projects-nexus/xtreme_kernel_lavender-4.4 kernel/xiaomi/lavender -b a13-qti
+git clone --depth=1 https://github.com/projects-nexus/xtreme_kernel_lavender-4.4 kernel/xiaomi/lavender -b a13-test
 
 # Sync source without unnecessary messages, try with -j30 first, if fails, it will try again
 repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10 || repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j10
@@ -35,6 +35,15 @@ git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hard
 # patch
 cd /tmp/rom/hardware/libhardware && curl https://github.com/Nub-XD/android_hardware_libhardware/commit/361913bd42e414648eef94443b9374761dfd0478.patch | git am && curl https://github.com/Nub-XD/android_hardware_libhardware/commit/27f4a7eb0fc1193eec00622fda8b3e92d52c95b9.patch | git am
 cd /tmp/rom/packages/apps/Settings && curl https://github.com/Nub-XD/android_packages_apps_Settings/commit/9b158cd815c1c6c8f2acd0711b65c966a670eccd.patch | git am
+
+# apn patch
+cd /tmp/rom/vendor/stag/prebuilt/common/etc
+rm -rf apns-conf.xml
+rm -rf sensitive_pn.xml
+ls
+wget https://raw.githubusercontent.com/AOSPA/android_vendor_aospa/topaz/target/config/apns-conf.xml
+wget https://raw.githubusercontent.com/AOSPA/android_vendor_aospa/topaz/target/config/sensitive_pn.xml
+ls
 
 # tree
 #git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender -b T-CLO device/xiaomi/lavender
