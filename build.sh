@@ -7,5 +7,5 @@ export TZ=Asia/Kolkata
 export SELINUX_IGNORE_NEVERALLOWS=true
 
 compile_plox () {
-blissify -g lavender -j$(nproc --all)
+blissify -g lavender -j10
 }
