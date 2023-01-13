@@ -16,8 +16,8 @@ bash ~/git_cookies.sh
 fi
 
 # Sync source
-repo init --depth=1 --no-repo-verify -u https://github.com/StagOS/manifest.git -b t13 -g default,-mips,-darwin,-notdefault
-git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender-13 device/xiaomi/lavender -b stag
+repo init --depth=1 --no-repo-verify -u https://github.com/PixelExtended/manifest -b trece -g default,-mips,-darwin,-notdefault
+git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/device_xiaomi_lavender-13 device/xiaomi/lavender -b pex
 git clone --depth=1 https://ImSpiDy:$my_og_token@github.com/ImSpiDy/vendor_xiaomi_lavender-13 vendor/xiaomi/lavender -b T
 git clone --depth=1 https://github.com/projects-nexus/xtreme_kernel_lavender-4.4 kernel/xiaomi/lavender -b a13-test
 
@@ -27,23 +27,23 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 #git clone --depth=1 https://github.com/AOSPA/android_hardware_google_pixel hardware/google/pixel -b topaz
 
 #hals
-rm -rf hardware/qcom-caf/msm8998/audio hardware/qcom-caf/msm8998/media hardware/qcom-caf/msm8998/display
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio -b 8998-4.4
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/msm8998/display -b 8998-4.4
-git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/msm8998/media -b 8998-4.4
+#rm -rf hardware/qcom-caf/msm8998/audio hardware/qcom-caf/msm8998/media hardware/qcom-caf/msm8998/display
+#git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio -b 8998-4.4
+#git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_display hardware/qcom-caf/msm8998/display -b 8998-4.4
+#git clone --depth=1 https://github.com/wHo-EM-i/android_hardware_qcom_media hardware/qcom-caf/msm8998/media -b 8998-4.4
 
 # patch
-cd /tmp/rom/hardware/libhardware && curl https://github.com/Nub-XD/android_hardware_libhardware/commit/361913bd42e414648eef94443b9374761dfd0478.patch | git am && curl https://github.com/Nub-XD/android_hardware_libhardware/commit/27f4a7eb0fc1193eec00622fda8b3e92d52c95b9.patch | git am
-cd /tmp/rom/packages/apps/Settings && curl https://github.com/Nub-XD/android_packages_apps_Settings/commit/9b158cd815c1c6c8f2acd0711b65c966a670eccd.patch | git am
+#cd /tmp/rom/hardware/libhardware && curl https://github.com/Nub-XD/android_hardware_libhardware/commit/361913bd42e414648eef94443b9374761dfd0478.patch | git am && curl https://github.com/Nub-XD/android_hardware_libhardware/commit/27f4a7eb0fc1193eec00622fda8b3e92d52c95b9.patch | git am
+#cd /tmp/rom/packages/apps/Settings && curl https://github.com/Nub-XD/android_packages_apps_Settings/commit/9b158cd815c1c6c8f2acd0711b65c966a670eccd.patch | git am
 
 # apn patch
-cd /tmp/rom/vendor/stag/prebuilt/common/etc
-rm -rf apns-conf.xml
-rm -rf sensitive_pn.xml
-ls
-wget https://raw.githubusercontent.com/AOSPA/android_vendor_aospa/topaz/target/config/apns-conf.xml
-wget https://raw.githubusercontent.com/AOSPA/android_vendor_aospa/topaz/target/config/sensitive_pn.xml
-ls
+#cd /tmp/rom/vendor/stag/prebuilt/common/etc
+#rm -rf apns-conf.xml
+#rm -rf sensitive_pn.xml
+#ls
+#wget https://raw.githubusercontent.com/AOSPA/android_vendor_aospa/topaz/target/config/apns-conf.xml
+#wget https://raw.githubusercontent.com/AOSPA/android_vendor_aospa/topaz/target/config/sensitive_pn.xml
+#ls
 
 # tree
 #git clone --depth=1 https://wHo-EM-i:$my_og_token@github.com/wHo-EM-i/device_xiaomi_lavender -b T-CLO device/xiaomi/lavender
@@ -51,7 +51,7 @@ ls
 #git clone --depth=1 https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r433403b.git -b 12.0 prebuilts/clang/host/linux-x86/clang-r433403b
 
 # patch
-cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
+#cd /tmp/rom/system/libhidl && curl https://github.com/ArrowOS/android_system_libhidl/commit/fbdf10a33f546d202ae12b4b864177fea9faa998.patch | git am
 #cd /tmp/rom/device/qcom/common && curl https://github.com/wHo-EM-i/android_device_qcom_common/commit/b3a612e836ddf3e9ac766612ee4bd9194b681c95.patch | git am
 #cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/5d7113e5323cfd9ad528319008b2895f5ac29113.patch | git am
 #cd /tmp/rom/bionic && curl https://github.com/wHo-EM-i/bionic/commit/2fa9b6e73c2f0c2b21b529a14e886ac79e5a081f.patch | git am
